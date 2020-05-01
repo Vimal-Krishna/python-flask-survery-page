@@ -5,9 +5,9 @@ from wtforms import (Form, StringField, IntegerField, SelectField,
 app = Flask(__name__)
 
 class NormalFields(Form):
-    name = StringField(label='Name')
-    email = StringField(label='Email')
-    age = IntegerField(label='Age (optional)')
+    name = StringField(label='Name', description='Enter your name')
+    email = StringField(label='Email', description='Enter your email')
+    age = IntegerField(label='Age (optional)', description='Enter your age')
     current_role_label = "Which options best describes your current role?"
     current_role_choices = [
         ('default', 'Select Current Role'),
@@ -56,7 +56,8 @@ class Checkboxes(Form):
 class SurveyForm(Form):
     normal_fields = FormField(NormalFields)
     checkboxes = FormField(Checkboxes)
-    suggestions_textarea = TextAreaField("Any comments or suggestions?")
+    suggestions_textarea = TextAreaField("Any comments or suggestions?", 
+        description="Enter comments/suggestions")
     
 def home():
     return "hello from flask"
