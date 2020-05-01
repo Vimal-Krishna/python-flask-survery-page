@@ -4,12 +4,7 @@
 </head>
 <html>
     <div class="main">
-        <!--
-        <form class="form" method="POST" action="/survey">
-            {{ form.checkboxes(class='form-control') }}
-        </form>
-        -->
-        <form class="form" method="POST" action="/survey">
+            <form class="form" method="POST" action="/survey">
             {% for field in form.normal_fields %}
             <div class="form-group">            
                 {{ field.label() }}             
